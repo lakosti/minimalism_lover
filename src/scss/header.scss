@@ -1,0 +1,52 @@
+.header {
+  // .header__container
+  &__container {
+    display: flex;
+    align-items: center;
+    min-height: 236px;
+  }
+  // .header__logo
+  &__logo {
+    height: 62px;
+    width: 62px;
+    background: #eeebff;
+    border-radius: 100%;
+    flex: 0 0 62px; // flex-grow / flex-shrink / flex-basis
+    display: flex;
+    //fbc + enter = justify-content: center; align-items: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33em;
+    color: #7b61ff;
+    transform: rotate(30deg);
+  }
+  // .header__menu
+  &__menu {
+  }
+  // .header__button
+  &__button {
+  }
+}
+.menu {
+  // .menu__icon
+  &__icon {
+  }
+  // .menu__body
+  &__body {
+  }
+  // .menu__list
+  &__list {
+  }
+  // .menu__item
+  &__item {
+  }
+  // .menu__link
+  &__link {
+  }
+}
+.icon-menu {
+}
