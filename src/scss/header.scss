@@ -6,11 +6,13 @@
     @include adaptiveValue("min-height", 200, 80);
   }
   &__logo {
+    position: relative;
+    z-index: 2;
     height: 62px;
     width: 62px;
     background: #eeebff;
     border-radius: 50%;
-    flex: 0 0 62px; //* flex-grow / flex-shrink / flex-basis
+    flex: 0 0 62px; //* flex-grow / flex-shrink / flex-basis -- ЩОБ НЕ СПЛЮЩУВАВСЯ (флекс елементи можуть це робити)
     display: flex;
     //*fbc + enter = justify-content: center; align-items: center;
     justify-content: center;
@@ -31,6 +33,8 @@
   }
 
   &__button {
+    position: relative;
+    z-index: 2;
   }
 }
 .menu {
@@ -42,13 +46,49 @@
   }
 
   &__body {
+    //*md3 + enter
     flex: 1 1 auto;
+    @media (max-width: $mobile) {
+      position: fixed;
+      overflow: auto;
+      width: 100%;
+      height: 100%;
+      left: -100%; //*прибрали меню з вью порту
+      top: 0;
+      background-color: #8c7bdf;
+      @include adaptiveValue("padding-top", 236, 120);
+      padding: 0 toRem(15) toRem(30);
+      transition: left 0.5s ease;
+      &::before {
+        content: "";
+        position: fixed;
+        width: 100%;
+        background-color: #e0e0e0;
+        @include adaptiveValue("min-height", 180, 80);
+        left: -100%;
+        top: 0;
+        transition: left 0.5s ease;
+      }
+      //? при появі класу menu-open ми звертаємося до всіх вкладених елементів &
+      .menu-open & {
+        left: 0;
+        &::before {
+          left: 0;
+        }
+      }
+    }
   }
 
   &__list {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      justify-content: center;
+      gap: toRem(20);
+      align-items: center;
+    }
   }
 
   &__item {
@@ -60,6 +100,10 @@
     color: $grey;
     font-weight: 500;
     line-height: math.div(28, 18);
+    @media (max-width: $mobile) {
+      color: $indigo;
+      font-size: toRem(30);
+    }
     //* hhv + enter = @media hover
     @media (any-hover: hover) {
       &:hover {
@@ -69,4 +113,54 @@
   }
 }
 .icon-menu {
+}
+
+//====================================================================================================
+
+//Burger
+.icon-menu {
+  display: none;
+  @media (max-width: $mobile) {
+    display: block;
+    position: relative;
+    width: toRem(30);
+    height: toRem(18);
+    flex: 0 0 toRem(30);
+    cursor: pointer;
+    z-index: 5;
+    margin: 0px 0px 0px toRem(15);
+    span,
+    &::before,
+    &::after {
+      content: "";
+      transition: all 0.3s ease 0s;
+      right: 0;
+      position: absolute;
+      width: 100%;
+      height: toRem(2);
+      background-color: #000;
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+    span {
+      top: calc(50% - toRem(1));
+    }
+    .menu-open & {
+      span {
+        width: 0;
+      }
+      &::before {
+        top: calc(50% - toRem(1));
+        transform: rotate(-45deg);
+      }
+      &::after {
+        bottom: calc(50% - toRem(1));
+        transform: rotate(45deg);
+      }
+    }
+  }
 }

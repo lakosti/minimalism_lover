@@ -2,12 +2,10 @@
 // Сніппет (HTML): btn
 
 .button {
-  background: #ffffff;
   border: 1px solid $indigo;
   border-radius: 6px;
   display: inline-flex;
   padding: 11px 32px;
-
   font-weight: 500;
   line-height: math.div(28, 18);
   color: $indigo;
