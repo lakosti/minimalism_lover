@@ -1,51 +1,71 @@
 .header {
-  // .header__container
   &__container {
     display: flex;
     align-items: center;
-    min-height: 236px;
+    //*по замовчуванню стоїть 200 і буде повільно рухатися до 80
+    @include adaptiveValue("min-height", 200, 80);
   }
-  // .header__logo
   &__logo {
     height: 62px;
     width: 62px;
     background: #eeebff;
-    border-radius: 100%;
-    flex: 0 0 62px; // flex-grow / flex-shrink / flex-basis
+    border-radius: 50%;
+    flex: 0 0 62px; //* flex-grow / flex-shrink / flex-basis
     display: flex;
-    //fbc + enter = justify-content: center; align-items: center;
+    //*fbc + enter = justify-content: center; align-items: center;
     justify-content: center;
     align-items: center;
     text-align: center;
-
     font-weight: 600;
-    font-size: 24px;
+    font-size: toRem(24);
     line-height: 1.33em;
     color: #7b61ff;
     transform: rotate(30deg);
   }
-  // .header__menu
+
   &__menu {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    padding: 0 0 0 toRem(10); //*щоб не було злипання
   }
-  // .header__button
+
   &__button {
   }
 }
 .menu {
-  // .menu__icon
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+
   &__icon {
   }
-  // .menu__body
+
   &__body {
+    flex: 1 1 auto;
   }
-  // .menu__list
+
   &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
-  // .menu__item
+
   &__item {
+    // *отзивчиваое свойство av + enter
+    @include adaptiveValue("margin-right", 80, 10);
   }
-  // .menu__link
+
   &__link {
+    color: $grey;
+    font-weight: 500;
+    line-height: math.div(28, 18);
+    //* hhv + enter = @media hover
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 .icon-menu {
