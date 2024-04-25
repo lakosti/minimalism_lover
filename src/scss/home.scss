@@ -1,3 +1,84 @@
 //====================================================================================================
 
+.main-block {
+  @include adaptiveValue("padding-top", 337, 80);
+  &__container {
+    display: flex;
+    @media (max-width: $mobile) {
+      display: flex;
+      flex-direction: column;
+      gap: toRem(30);
+    }
+  }
+
+  &__content {
+    align-self: center;
+    flex: 1 1 auto; //* на всю ширину
+    @include adaptiveValue("padding-right", 80, 20);
+  }
+
+  &__image {
+    text-align: center;
+    flex: 0 0 math.div(478, 1180) * 100%;
+    img {
+      width: 100%;
+    }
+  }
+}
+.content-main {
+  display: grid;
+  @include adaptiveValue("gap", 40, 20);
+  &_button {
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    color: $indigo;
+    font-weight: 500;
+    font-size: toRem(20);
+    gap: toRem(10);
+    line-height: math.div(28, 20);
+    @media (min-width: $mobile) {
+      &::before {
+        content: "";
+        width: 102px;
+        height: 1px;
+        background-color: $indigo;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    @include adaptiveValue("font-size", 72, 34);
+  }
+
+  &__text {
+    color: $grey;
+    font-weight: 400;
+    font-size: 18;
+    line-height: math.div(28, 18);
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: toRem(20);
+  }
+  &__button {
+    @media (max-width: $mobileSmall) {
+      flex: 1 1 auto;
+    }
+  }
+  &__info {
+    border-top: 1px solid rgb(229, 231, 235);
+    padding-top: toRem(20);
+    color: rgb(107, 114, 128);
+    font-weight: 400;
+    font-size: toRem(12);
+    line-height: math.div(16, 12);
+  }
+}
+
 //====================================================================================================

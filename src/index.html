@@ -1,15 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	@@include('html/_head.htm',{
-	"title":"HomePage"
-	})
-	<body>
-		<div class="wrapper">
-			@@include('html/_header.htm',{})
-			<main class="page">
-			</main>
-			@@include('html/_footer.htm',{})
-		</div>
-		@@include('html/_js.htm',{})
-	</body>
+  @@include('html/_head.htm',{ "title":"Minimalism lover" })
+  <body>
+    <div class="wrapper">
+      @@include('html/_header.htm',{})
+      <main class="page">
+        <section class="page__section main-block">
+          <div class="main-block__container">
+            <div class="main-block__content content-main">
+              <div class="content-main__name">Jessica Strosin</div>
+              <h1 class="content-main__title">Creative thinker, Minimalism lover</h1>
+              <div class="content-main__text">
+                Hi, I'm Jessica. I'm a UI/UX Designer. If you are looking for a designer to build
+                your brands and grow your business, let's shake hands with me.
+              </div>
+              <div class="content-main__buttons">
+                <button class="content-main_button button button_bg" type="button">Hire me</button>
+                <a href="#" class="content-main_button button">Read more</a>
+              </div>
+              <div class="content-main__info">I am currently open for part-time work.</div>
+            </div>
+            <div class="main-block__image">
+              <img src="@img/main-block/image.jpg" alt="Woman" />
+            </div>
+          </div>
+        </section>
+      </main>
+      @@include('html/_footer.htm',{})
+    </div>
+    @@include('html/_js.htm',{})
+  </body>
 </html>
