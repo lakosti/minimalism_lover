@@ -15,7 +15,13 @@
                 your brands and grow your business, let's shake hands with me.
               </div>
               <div class="content-main__buttons">
-                <button class="content-main_button button button_bg" type="button">Hire me</button>
+                <button
+                  data-popup="#popup"
+                  class="content-main_button button button_bg"
+                  type="button"
+                >
+                  Hire me
+                </button>
                 <a href="#" class="content-main_button button">Read more</a>
               </div>
               <div class="content-main__info">I am currently open for part-time work.</div>
@@ -28,6 +34,6 @@
       </main>
       @@include('html/_footer.htm',{})
     </div>
-    @@include('html/_js.htm',{})
+    @@include('html/_popup.htm',{}) @@include('html/_js.htm',{})
   </body>
 </html>

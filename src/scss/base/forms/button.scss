@@ -4,7 +4,7 @@
 .button {
   border: 1px solid $indigo;
   border-radius: 6px;
-  display: inline-flex;
+  // display: inline-flex;
   text-align: center;
   padding: 11px 32px;
   font-weight: 500;
@@ -16,6 +16,9 @@
       background-color: $indigo;
       color: #ffffff;
     }
+  }
+  @media (max-width: $mobileSmall) {
+    flex: 1 1 auto;
   }
   &_bg {
     background-color: $indigo;

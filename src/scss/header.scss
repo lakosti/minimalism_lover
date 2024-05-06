@@ -4,11 +4,20 @@
   left: 0;
   width: 100%;
   z-index: 50;
+  transition: all 0.3s ease 0s;
+  &._header-scroll {
+    transition: all 0.3s ease 0s;
+    background-color: rgba(255, 254, 254, 0.9);
+  }
   &__container {
     display: flex;
     align-items: center;
     //*по замовчуванню стоїть 200 і буде повільно рухатися до 80
     @include adaptiveValue("min-height", 200, 80);
+    ._header-scroll & {
+      transition: all 0.3s ease 0s;
+      min-height: toRem(80);
+    }
   }
   &__logo {
     position: relative;
@@ -47,9 +56,6 @@
   align-items: center;
   flex: 1 1 auto;
 
-  &__icon {
-  }
-
   &__body {
     //*md3 + enter
     flex: 1 1 auto;
@@ -61,18 +67,26 @@
       left: -100%; //*прибрали меню з вью порту
       top: 0;
       background-color: #8c7bdf;
-      @include adaptiveValue("padding-top", 236, 120);
+      @include adaptiveValue("padding-top", 256, 120);
       padding: 0 toRem(15) toRem(30);
       transition: left 0.5s ease;
+      ._header-scroll & {
+        transition: all 0.3s ease 0s;
+        padding-top: toRem(120);
+      }
       &::before {
         content: "";
         position: fixed;
         width: 100%;
         background-color: #e0e0e0;
-        @include adaptiveValue("min-height", 180, 80);
+        @include adaptiveValue("min-height", 236, 80);
         left: -100%;
         top: 0;
         transition: left 0.5s ease;
+        ._header-scroll & {
+          transition: all 0.3s ease 0s;
+          min-height: toRem(80);
+        }
       }
       //? при появі класу menu-open ми звертаємося до всіх вкладених елементів &
       .menu-open & {
@@ -116,8 +130,6 @@
       }
     }
   }
-}
-.icon-menu {
 }
 
 //====================================================================================================
