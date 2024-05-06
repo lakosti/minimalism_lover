@@ -2,7 +2,7 @@
 
 .main-block {
   @include adaptiveValue("padding-top", 237, 100);
-  @include adaptiveValue("padding-bottom", 100, 20);
+  @include adaptiveValue("padding-bottom", 100, 30);
 
   &__container {
     display: flex;
@@ -79,3 +79,84 @@
 }
 
 //====================================================================================================
+
+.services {
+  @include adaptiveValue("padding-top", 100, 30);
+  // @include adaptiveValue("padding-bottom", 150, 30);
+  // .services__container
+  &__container {
+  }
+  // .services__title
+  &__title {
+    font-weight: 600;
+    text-align: center;
+    color: #1f2937;
+    max-width: toRem(1040);
+    @include adaptiveValue("font-size", 48, 28);
+    @include adaptiveValue("margin-bottom", 150, 30);
+    span {
+      color: $indigo;
+    }
+  }
+  // .services__body
+  &__body {
+    display: flex;
+    align-items: flex-start;
+    @media (max-width: $mobile) {
+      flex-direction: column-reverse;
+      align-items: stretch;
+    }
+  }
+  // .services__img
+  &__img {
+    text-align: center;
+    flex: 0 0 math.div(440, 1180) * 100%;
+    img {
+      width: 100%;
+    }
+  }
+  // .services__items
+  &__items {
+    flex: 1 1 auto;
+    display: grid;
+    @include adaptiveValue("gap", 68, 20);
+    @include adaptiveValue("padding", 50, 20);
+    grid-template-columns: repeat(2, 1fr);
+    @media (max-width: $mobile) {
+      padding: 0 0 toRem(20) 0;
+    }
+  }
+  // .services__item
+  &__item {
+  }
+}
+.item-services {
+  display: grid;
+  gap: toRem(20);
+  // .item-services__title
+  &__title {
+    font-weight: 600;
+    // line-height: math.div(18, 12);
+  }
+  // .item-services__text
+  &__text {
+    font-size: toRem(12);
+    line-height: math.div(16, 12);
+  }
+  // .item-services__link
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    gap: toRem(5);
+    font-size: toRem(12);
+    line-height: math.div(16, 12);
+    color: $indigo;
+    &::after {
+      content: "";
+      background: url("@img/icons/link-arrow.svg") 0 0 no-repeat;
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
