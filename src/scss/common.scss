@@ -1,1 +1,11 @@
 // Заголовки, загальні БЕМ блоки та інше...
+.title {
+  font-weight: 600;
+  margin: 0 auto;
+  text-align: center;
+  color: #1f2937;
+  @include adaptiveValue("font-size", 48, 28);
+  span {
+    color: $indigo;
+  }
+}
