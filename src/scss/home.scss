@@ -259,3 +259,42 @@
     line-height: math.div(20, 14);
   }
 }
+//====================================================================================================================================
+
+.advantages {
+  @include adaptiveValue("padding-top", 75, 30);
+  @include adaptiveValue("padding-bottom", 75, 30);
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(toRem(250), 1fr));
+    text-align: center;
+    row-gap: toRem(40);
+    @include adaptiveValue("column-gap", 83, 30);
+  }
+  &__icon {
+    padding: toRem(50);
+    margin: 0 auto;
+    width: toRem(140);
+    height: toRem(140);
+    border-radius: 6px;
+    background-color: rgb(238, 242, 255);
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 40, 20);
+    }
+  }
+  &__title {
+    font-weight: 600;
+    line-height: math.div(38, 30);
+    color: rgb(55, 65, 81);
+    @include adaptiveValue("font-size", 30, 24);
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 20, 10);
+    }
+  }
+  &__text {
+    color: $grey;
+    font-size: toRem(18);
+    line-height: math.div(28, 18);
+  }
+}
