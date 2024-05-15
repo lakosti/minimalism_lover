@@ -301,22 +301,52 @@
 //===================================================================================================
 
 .careers {
-  &__container {
-  }
+  @include adaptiveValue("padding-top", 75, 30);
+  @include adaptiveValue("padding-bottom", 150, 30);
+
   &__title {
+    @include adaptiveValue("margin-bottom", 150, 30);
   }
-  &__table {
-  }
-}
-.title {
 }
 .table {
+  color: $grey;
+  @media (max-width: toEm(750)) {
+    overflow: auto;
+  }
+
   &__item {
+    width: 100%;
+    min-width: toRem(750);
+    border-collapse: collapse;
   }
+
   &__row {
+    &:not(:last-child) {
+      .table__title,
+      .table__cell {
+        @include adaptiveValue("padding-bottom", 80, 15);
+      }
+    }
   }
+
   &__title {
+    text-align: start;
+    text-transform: uppercase;
+    font-size: toRem(16);
+    line-height: math.div(24, 16);
+    font-weight: 500;
+    &:not(:last-child) {
+      padding-right: toRem(15);
+    }
   }
+
   &__cell {
+    span {
+      font-weight: 600;
+      color: $mainColor;
+    }
+    &:not(:last-child) {
+      padding-right: toRem(15);
+    }
   }
 }

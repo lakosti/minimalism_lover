@@ -1,3 +1,41 @@
 //====================================================================================================
+.footer {
+  @include adaptiveValue("padding-top", 110, 30);
+  @include adaptiveValue("padding-bottom", 110, 30);
+
+  background-color: rgb(254, 242, 242);
+  &__title {
+    color: rgb(55, 65, 81);
+    margin-bottom: 20px;
+  }
+  &__text {
+    max-width: toRem(664);
+    margin: 0 auto;
+    text-align: center;
+    color: $grey;
+    font-size: toRem(18);
+    line-height: math.div(28, 18);
+    @include adaptiveValue("margin-bottom", 100, 30);
+  }
+}
+
+.footer-soc {
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include adaptiveValue("gap", 50, 10);
+  }
+}
+.social {
+  &__icon {
+    transition: all 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
 
 //====================================================================================================
